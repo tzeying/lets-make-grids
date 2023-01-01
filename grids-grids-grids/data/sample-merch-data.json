@@ -1,0 +1,121 @@
+[
+    {
+        "item": "Dish box cell kit ",
+        "category": "Boxes",
+        "image": "Box.svg",
+        "price": 13.99
+    },
+    {
+        "item": "Dish box",
+        "category": "Boxes",
+        "image": "Box.svg",
+        "price": 6.2
+    },
+    {
+        "item": "Large box",
+        "description": "24x18x19",
+        "category": "Boxes",
+        "image": "Box.svg",
+        "price": 3.25
+    },
+    {
+        "item": "Medium box",
+        "description": "18x18x17",
+        "category": "Boxes",
+        "image": "Box.svg",
+        "price": 2.8
+    },
+    {
+        "item": "Small box",
+        "description": "16x12x13",
+        "category": "Boxes",
+        "image": "Box.svg",
+        "price": 1.95
+    },
+    {
+        "item": "Wardrobe box",
+        "description": "24.5x47x21.6",
+        "category": "Boxes",
+        "image": "Box.svg",
+        "price": 14.99
+    },
+    {
+        "item": "X-large box",
+        "description": "24x24x25",
+        "category": "Boxes",
+        "image": "Box.svg",
+        "price": 4.95
+    },
+    {
+        "item": "Bubble wrap in a box ",
+        "description": "12x151",
+        "category": "Boxes",
+        "image": "Box.svg",
+        "price": 24.99
+    },
+    {
+        "item": "Lock - Cylinder lock",
+        "category": "Lock",
+        "image": "Lock and key.svg",
+        "price": 12.99
+    },
+    {
+        "item": "Lock - Single large disc-1",
+        "category": "Lock",
+        "image": "Lock and key.svg",
+        "price": 13.99
+    },
+    {
+        "item": "Mattress tote - Large ",
+        "category": "Other supplies",
+        "price": 9.67
+    },
+    {
+        "item": "Mattress tote - Small ",
+        "category": "Other supplies",
+        "price": 8.14
+    },
+    {
+        "item": "Moving labels ",
+        "category": "Other supplies",
+        "price": 6.78
+    },
+    {
+        "item": "SAF-T-PAK - Glass ",
+        "category": "Other supplies",
+        "price": 11.99
+    },
+    {
+        "item": "SAF-T-PAK - Dish",
+        "category": "Other supplies",
+        "price": 11.99
+    },
+    {
+        "item": "White nylon rope",
+        "category": "Other supplies",
+        "price": 4.23
+    },
+    {
+        "item": "10lb Paper ",
+        "category": "Paper",
+        "price": 19.99
+    },
+    {
+        "item": "Mailing tape ",
+        "category": "Tape",
+        "image": "Tape.svg",
+        "price": 2.49
+    },
+    {
+        "item": "3 rolls and dispenser",
+        "category": "Tape",
+        "image": "Tape.svg",
+        "price": 10.99
+    },
+    {
+        "item": "Clear 2x55",
+        "category": "Tape",
+        "image": "Tape.svg",
+        "price": 3.99
+    }
+]
