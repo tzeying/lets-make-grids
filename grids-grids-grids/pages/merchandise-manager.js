@@ -17,7 +17,7 @@ function MerchandiseManager() {
     return (
         <div className="bg-neutral-50 p-10">
             <h3 className="text-xl font-semibold pb-4">Merchandise</h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-4">
                 {merchData.map((m, i) =>
                     <MerchCard key={i} merchandise={m} />
                 )}
