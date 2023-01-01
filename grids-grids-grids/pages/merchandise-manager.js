@@ -1,6 +1,6 @@
 import MerchCard from "../components/merch-card";
 import DataEditor from "../components/data-editor";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 let emptyProductList = [
     {
@@ -13,8 +13,6 @@ let emptyProductList = [
 
 function MerchandiseManager() {
     let [merchData, setMerchData] = useState(emptyProductList);
-    console.log('mgr', merchData)
-
 
     return (
         <div className="bg-neutral-50 p-10">
