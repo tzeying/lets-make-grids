@@ -1,5 +1,3 @@
-import Grid from '../components/grid';
-
 export default function AllGrids() {
   let sizes = [
     { w: 5, h: 5 },
@@ -17,11 +15,11 @@ export default function AllGrids() {
 
   return (
     <div className='container flex flex-wrap gap-4'>
-      {
+      {/* {
         sizes.map((size, i) =>
           <Grid size={size} index={i} key={i}></Grid>
         )
-      }
+      } */}
     </div>
   )
 }
