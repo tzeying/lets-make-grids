@@ -4,10 +4,10 @@ import { useState } from "react";
 
 let emptyProductList = [
     {
-        "item": "Dish box cell kit ",
-        "description": "",
-        "category": "Boxes",
-        "price": 13.99
+        "item": "Product name",
+        "description": "Descriptions",
+        "category": "None",
+        "price": 0.00
     },
 ]
 
