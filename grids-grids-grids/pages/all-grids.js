@@ -1,3 +1,5 @@
+import Grid from '../components/grid';
+
 export default function AllGrids() {
   let sizes = [
     { w: 5, h: 5 },
