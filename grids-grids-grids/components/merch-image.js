@@ -12,7 +12,7 @@ function MerchImage({ image }) {
     }, [palette, color]);
 
     return (
-        <div className="w-12 h-12 rounded-sm bg-neutral-100 flex p-2" style={{ backgroundColor: bgColor }}>
+        <div className="w-12 h-12 min-w-[48px] rounded-sm bg-neutral-100 flex p-2" style={{ backgroundColor: bgColor }}>
             <img ref={imgRef} src={image != undefined ? `/merch/${image}` : `/merch/Empty.svg`} alt="" />
         </div>
     );

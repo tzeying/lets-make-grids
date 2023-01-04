@@ -54,50 +54,57 @@
         "price": 24.99
     },
     {
-        "item": "Lock - Cylinder lock",
+        "item": "Cylinder lock",
         "category": "Lock",
         "image": "Lock and key.svg",
         "price": 12.99
     },
     {
-        "item": "Lock - Single large disc-1",
+        "item": "Single large disc lock",
         "category": "Lock",
         "image": "Lock and key.svg",
         "price": 13.99
     },
     {
-        "item": "Mattress tote - Large ",
+        "item": "Mattress tote (Large)",
         "category": "Other supplies",
+        "image": "Bag.svg",
         "price": 9.67
     },
     {
-        "item": "Mattress tote - Small ",
+        "item": "Mattress tote (Small)",
         "category": "Other supplies",
+        "image": "Bag.svg",
         "price": 8.14
     },
     {
         "item": "Moving labels ",
         "category": "Other supplies",
+        "image": "Label.svg",
         "price": 6.78
     },
     {
         "item": "SAF-T-PAK - Glass ",
         "category": "Other supplies",
+        "image": "Fragile.svg",
         "price": 11.99
     },
     {
         "item": "SAF-T-PAK - Dish",
         "category": "Other supplies",
+        "image": "Fragile.svg",
         "price": 11.99
     },
     {
         "item": "White nylon rope",
         "category": "Other supplies",
+        "image": "Rope.svg",
         "price": 4.23
     },
     {
         "item": "10lb Paper ",
         "category": "Paper",
+        "image": "Paper.svg",
         "price": 19.99
     },
     {
