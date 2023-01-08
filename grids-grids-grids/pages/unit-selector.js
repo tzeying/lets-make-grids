@@ -2,21 +2,33 @@ import PricingGroups from '../data/pricing-groups.json';
 import FeatureList from '../components/feature-list';
 import UnitList from '../components/unit-list'
 import GridImage from '../components/grid-image';
+import GridSVG from '../components/grid-svg';
+import PlottedGrid from '../components/plotted-grid';
 let formatCurrency = value => value.toLocaleString('us-US', { style: 'currency', currency: 'USD' });
 
 function UnitSelector() {
-    console.log(PricingGroups);
+
+    console.log(PricingGroups[0].size.split('x'))
+
     return (
         <div className="w-full bg-[#FAFAFA]">
             <div className='gap-3 flex flex-col p-3 w-[600px]'>
                 {
                     PricingGroups.map(PG =>
                         PG.availableSpaceCount > 0 &&
-                        <div className='bg-white shadow-sm border rounded flex h-40'>
+                        <div key={PG.id} className='bg-white shadow-sm border rounded flex h-40'>
                             <div className='w-1/2 flex flex-col justify-between'>
-                                <div className="flex h-full">
-                                    <GridImage />
-                                    <div className='px-3 pt-2'>
+                                <div className="flex h-full relative">
+                                    {/* <GridImage /> */}
+                                    <div className="flex w-1/3 h-full overflow-hidden items-center">
+                                        <PlottedGrid
+                                            Unit={5}
+                                            WidthFt={PG.size.split('x')[0]}
+                                            HeightFt={PG.size.split('x')[1]}
+                                            Scale={0.7}
+                                        />
+                                    </div>
+                                    <div className='px-3 pt-2 w-full'>
                                         <p className='text-neutral-700' key={PG.id}>{PG.size} {PG.name}</p>
                                         <FeatureList list={PG.featureIds}></FeatureList>
                                     </div>

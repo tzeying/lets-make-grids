@@ -15,7 +15,7 @@ function FeatureList({ list }) {
             return acc;
         }, {});
 
-    console.log(displayList)
+    // console.log(displayList)
 
     return (
         <>

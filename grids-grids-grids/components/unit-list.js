@@ -7,8 +7,8 @@ function UnitList({list}) {
     return (
         <div className="flex flex-wrap gap-2">
             {
-                showing.map(space =>
-                    <button className='py-1 px-2 text-sm bg-white hover:bg-neutral-100 border border-neutral-300 rounded-sm text-neutral-600'>
+                showing.map((space, i) =>
+                    <button key={i} className='py-1 px-2 text-sm bg-white hover:bg-neutral-100 border border-neutral-300 rounded-sm text-neutral-600'>
                         {Spaces.find(S => S.id == space).name.slice(1)}
                     </button>
                 )
