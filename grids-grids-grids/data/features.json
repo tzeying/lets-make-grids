@@ -1,0 +1,156 @@
+[
+    {
+        "id": 927,
+        "category": "Environment",
+        "name": "Drive-up",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 935,
+        "category": "Vehicle type",
+        "name": "Boat",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 928,
+        "category": "Climate Controlled",
+        "name": "No",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 923,
+        "category": "Controlled",
+        "name": "Climate",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 930,
+        "category": "Environment",
+        "name": "Roll-up door",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 925,
+        "category": "Environment",
+        "name": "Swing door",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 919,
+        "category": "Environment",
+        "name": "Indoor",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 926,
+        "category": "Environment",
+        "name": "Outdoor",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 922,
+        "category": "Security",
+        "name": "Facility Gate",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 921,
+        "category": "Environment",
+        "name": "Ground",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 929,
+        "category": "Humidty Controlled",
+        "name": "No",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 924,
+        "category": "Controlled",
+        "name": "Humidity",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 931,
+        "category": "Parking",
+        "name": "Parking",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 933,
+        "category": "Parking",
+        "name": "Fully enclosed",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 938,
+        "category": "Parking",
+        "name": "Partial Overhang",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 940,
+        "category": "Parking",
+        "name": "Uncovered",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 932,
+        "category": "Parking",
+        "name": "Paved",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 939,
+        "category": "Parking",
+        "name": "20Amp",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 936,
+        "category": "Parking",
+        "name": "30Amp",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 937,
+        "category": "Parking",
+        "name": "No Parking",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 934,
+        "category": "Vehicle type",
+        "name": "RV",
+        "value": 1,
+        "organisationId": 15
+    },
+    {
+        "id": 920,
+        "category": "Environment",
+        "name": "Enclosed steel",
+        "value": 1,
+        "organisationId": 15
+    }
+]
