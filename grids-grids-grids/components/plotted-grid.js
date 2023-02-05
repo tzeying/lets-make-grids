@@ -19,7 +19,7 @@ function PlottedGrid({ Key, Unit, WidthFt, HeightFt, Scale = 1 }) {
 
     return (
         <div key={Key} className="absolute w-full h-full top-0 flex justify-center items-center" style={{transform: `scale(${Scale})`}}>
-            <div style={boundingRectStyles} className='rounded outline outline-purple-500 bg-gradient-to-t from-purple-200 to-transparent flex justify-center items-center relative'>
+            <div style={boundingRectStyles} className='rounded outline outline-1 outline-purple-500 bg-gradient-to-t from-purple-200 to-transparent flex justify-center items-center relative'>
 
                 <div className="flex absolute top-0 left-0">
                     {
