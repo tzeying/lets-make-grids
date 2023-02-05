@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import PlottedGrid from '../components/plotted-grid';
 import _ from 'lodash';
+import GridSVG from '../components/grid-svg';
 
-function GridGenerator({}) {
+function GridGenerator({ }) {
 
     let [widthFeet, setWidthFeet] = useState(5);
     let [heightFeet, setHeightFeet] = useState(5);
@@ -20,7 +21,13 @@ function GridGenerator({}) {
                     <input type="number" value={heightFeet} onChange={e => setHeightFeet(e.target.value)} />
                 </div>
             </div>
-            <PlottedGrid Unit={gridUnit} WidthFt={widthFeet} HeightFt={heightFeet} Scale={0.5}/>
+            
+            <div className="flex w-[180px] h-[180px] overflow-hidden items-center relative">
+                <div className="grid-mask">
+                    <GridSVG unit={5} />
+                </div>
+                <PlottedGrid Unit={gridUnit} WidthFt={widthFeet} HeightFt={heightFeet} Scale={0.7} />
+            </div>
         </>
     );
 }
