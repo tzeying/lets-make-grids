@@ -2,7 +2,35 @@ import { useEffect, useState } from "react";
 import Select from 'react-select'
 import { formatCurrency, capitalizeFirstLetter } from '../utils';
 import _, { forEach } from 'lodash';
+import Calculations from "../components/calculations";
 
+const createCalculationsFromBlocks = blocks => {
+    let _blocks = _.flattenDeep(blocks)
+    let display = { items: [], taxItems: [], subtotal: 0, taxes: 0, total: 0 };
+    _blocks.forEach(b => {
+        if (b.category == 'TAX_STATE' || b.category == 'TAX_LOCAL') {
+            display.taxItems.push(b);
+            display.taxes += b.amount;
+        } else {
+            display.items.push(b)
+            display.subtotal += b.amount;
+        }
+    })
+    display.total = display.subtotal + display.taxes;
+    display.items.forEach((item, i) => {
+        let test = parseInt(item.explanation.slice(-2))
+        if (isNaN(test) == false) {
+            display.items[i].groupBy = item.explanation
+        } else {
+            display.items[i].groupBy = "misc"
+        }
+    })
+    display.items = _.groupBy(display.items, 'groupBy')
+    display.misc = display.items.misc;
+    delete display.items.misc;
+    
+    return display;
+}
 
 function Calculator({ token, leases }) {
 
@@ -10,7 +38,7 @@ function Calculator({ token, leases }) {
     let [leaseID, setLeaseID] = useState(402)
     let [currentLease, setCurrentLease] = useState(null)
     let [outstanding, setOutstanding] = useState(null)
-    let [calculations, setCalculations] = useState(null)
+    // let [calculations, setCalculations] = useState(null)
 
     let defaultValue = { value: leaseID, label: 'A119' };
 
@@ -24,7 +52,7 @@ function Calculator({ token, leases }) {
     useEffect(() => {
         setCurrentLease(leases.find(l => l.id == leaseID));
         async function fetchData() {
-            let getOutstanding = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/outstanding?token=${token}&id=${leaseID}`);
+            let getOutstanding = await fetch(`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/outstanding?token=${token}&id=${leaseID}`);
             let data = await getOutstanding.json();
             console.log(data)
             setOutstanding(data)
@@ -33,36 +61,12 @@ function Calculator({ token, leases }) {
         fetchData()
     }, [leaseID])
 
-    useEffect(() => {
-        if (outstanding == null) return;
-        if (outstanding == 0) return;
-        let blocks = _.flattenDeep(outstanding.blocks)
-        console.log(blocks)
-        let display = { items: [], taxItems: [], subtotal: 0, taxes: 0, total: 0 };
-        blocks.forEach(b => {
-            if (b.category == 'TAX_STATE' || b.category == 'TAX_LOCAL') {
-                display.taxItems.push(b);
-                display.taxes += b.amount;
-            } else {
-                display.items.push(b)
-                display.subtotal += b.amount;
-            }
-        })
-        display.total = display.subtotal + display.taxes;
-        display.items.forEach((item, i) => {
-            let test = parseInt(item.explanation.slice(0, 2))
-            if (isNaN(test) == false) {
-                display.items[i].groupBy = item.explanation
-            } else {
-                display.items[i].groupBy = "misc"
-            }
-        })
-        display.items = _.groupBy(display.items, 'groupBy')
-        display.misc = display.items.misc;
-        delete display.items.misc;
-        console.log(display)
-        setCalculations(display);
-    }, [outstanding])
+    // useEffect(() => {
+    //     if (outstanding == null) return;
+    //     if (outstanding == 0) return;
+    //     let display = createCalculationsFromBlocks(outstanding.blocks);
+    //     setCalculations(display);
+    // }, [outstanding])
 
     // useEffect(() => {
     //     async function fetchData() {
@@ -114,66 +118,7 @@ function Calculator({ token, leases }) {
                 }
             </div>
 
-            {outstanding != null &&
-                <div className="w-[350px] p-3">
-                    <div className="flex justify-between">
-                        <p className="text-md font-medium text-neutral-600">Outstanding balance</p>
-                        <p className="text-md font-medium text-neutral-600">USD {formatCurrency(outstanding.total / 100)}</p>
-                    </div>
-                    {outstanding.total != 0 &&
-                        <span className="text-xs text-blue-600 font-normal">Show breakdown</span>
-                    }
-                    {calculations != null &&
-                        <div className="flex flex-col gap-3 mt-2">
-                            {Object.keys(calculations.items).map((k, key) =>
-                                <div className="flex flex-col gap-1" key={key}>
-                                    <div className="separator">
-                                        <span className="px-3 text-xs text-neutral-400 font-normal">{k}</span>
-                                    </div>
-                                    {
-                                        calculations.items[k].map((item, key) =>
-                                            <div className="flex justify-between" key={key}>
-                                                <span className="text-sm">{capitalizeFirstLetter(item.category)}</span>
-                                                <span className="text-sm">{formatCurrency(item.amount / 100)}</span>
-                                            </div>
-                                        )
-                                    }
-                                </div>
-                            )}
-                            {calculations.misc != undefined &&
-                                <div className="border-t flex flex-col gap-2 pt-2">
-                                    {calculations.misc.map((item, key) =>
-                                        <div className="flex flex-col" key={key}>
-                                            {/* <div className="separator"></div> */}
-                                            <div className="flex justify-between">
-                                                <span className="text-sm">{capitalizeFirstLetter(item.explanation)}</span>
-                                                <span className="text-sm">{formatCurrency(item.amount / 100)}</span>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            }
-                            <div className="border-t flex justify-end">
-                                <div className="w-[240px] flex flex-col gap-2 py-2">
-                                    <div className="flex justify-between">
-                                        <span className="text-sm text-neutral-400">Subtotal</span>
-                                        <span className="text-sm text-neutral-400">{formatCurrency(calculations.subtotal / 100)}</span>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-sm text-neutral-400">Taxes</span>
-                                        <span className="text-sm text-neutral-400">{formatCurrency(calculations.taxes / 100)}</span>
-                                    </div>
-                                    <div className="flex justify-between border-t pt-1">
-                                        <span className="text-md font-medium text-neutral-700">Total</span>
-                                        <span className="text-md font-medium text-neutral-700">USD {formatCurrency(calculations.total / 100)}</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    }
-                </div>
-            }
+            <Calculations AccountingBlob={outstanding} /> 
         </div>
     )
 }
