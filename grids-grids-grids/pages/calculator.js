@@ -4,33 +4,7 @@ import { formatCurrency, capitalizeFirstLetter } from '../utils';
 import _, { forEach } from 'lodash';
 import Calculations from "../components/calculations";
 
-const createCalculationsFromBlocks = blocks => {
-    let _blocks = _.flattenDeep(blocks)
-    let display = { items: [], taxItems: [], subtotal: 0, taxes: 0, total: 0 };
-    _blocks.forEach(b => {
-        if (b.category == 'TAX_STATE' || b.category == 'TAX_LOCAL') {
-            display.taxItems.push(b);
-            display.taxes += b.amount;
-        } else {
-            display.items.push(b)
-            display.subtotal += b.amount;
-        }
-    })
-    display.total = display.subtotal + display.taxes;
-    display.items.forEach((item, i) => {
-        let test = parseInt(item.explanation.slice(-2))
-        if (isNaN(test) == false) {
-            display.items[i].groupBy = item.explanation
-        } else {
-            display.items[i].groupBy = "misc"
-        }
-    })
-    display.items = _.groupBy(display.items, 'groupBy')
-    display.misc = display.items.misc;
-    delete display.items.misc;
-    
-    return display;
-}
+
 
 function Calculator({ token, leases }) {
 
@@ -52,7 +26,7 @@ function Calculator({ token, leases }) {
     useEffect(() => {
         setCurrentLease(leases.find(l => l.id == leaseID));
         async function fetchData() {
-            let getOutstanding = await fetch(`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/outstanding?token=${token}&id=${leaseID}`);
+            let getOutstanding = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/outstanding?token=${token}&id=${leaseID}`);
             let data = await getOutstanding.json();
             console.log(data)
             setOutstanding(data)
