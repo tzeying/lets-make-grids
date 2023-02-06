@@ -19,6 +19,7 @@ function Calculator({ token, leases }) {
         return acc;
     }, [])
 
+    console.log('vercel url', process.env.NEXT_PUBLIC_VERCEL_URL)
 
     useEffect(() => {
         setCurrentLease(leases.find(l => l.id == leaseID));
@@ -150,6 +151,23 @@ function Calculator({ token, leases }) {
                                     )}
                                 </div>
                             }
+                            <div className="border-t flex justify-end">
+                                <div className="w-[240px] flex flex-col gap-2 py-2">
+                                    <div className="flex justify-between">
+                                        <span className="text-sm text-neutral-400">Subtotal</span>
+                                        <span className="text-sm text-neutral-400">{formatCurrency(calculations.subtotal / 100)}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="text-sm text-neutral-400">Taxes</span>
+                                        <span className="text-sm text-neutral-400">{formatCurrency(calculations.taxes / 100)}</span>
+                                    </div>
+                                    <div className="flex justify-between border-t pt-1">
+                                        <span className="text-md font-medium text-neutral-700">Total</span>
+                                        <span className="text-md font-medium text-neutral-700">{formatCurrency(calculations.taxes / 100)}</span>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     }
                 </div>
