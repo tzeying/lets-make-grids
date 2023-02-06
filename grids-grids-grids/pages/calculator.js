@@ -24,7 +24,7 @@ function Calculator({ token, leases }) {
     useEffect(() => {
         setCurrentLease(leases.find(l => l.id == leaseID));
         async function fetchData() {
-            let getOutstanding = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/outstanding?token=${token}&id=${leaseID}`);
+            let getOutstanding = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/outstanding?token=${token}&id=${leaseID}`);
             let data = await getOutstanding.json();
             console.log(data)
             setOutstanding(data)
@@ -120,7 +120,9 @@ function Calculator({ token, leases }) {
                         <p className="text-md font-medium text-neutral-600">Outstanding balance</p>
                         <p className="text-md font-medium text-neutral-600">USD {formatCurrency(outstanding.total / 100)}</p>
                     </div>
-                    {outstanding.total != 0 && <span className="text-xs text-blue-600 font-normal">Show breakdown</span>}
+                    {outstanding.total != 0 &&
+                        <span className="text-xs text-blue-600 font-normal">Show breakdown</span>
+                    }
                     {calculations != null &&
                         <div className="flex flex-col gap-3 mt-2">
                             {Object.keys(calculations.items).map((k, key) =>
@@ -163,7 +165,7 @@ function Calculator({ token, leases }) {
                                     </div>
                                     <div className="flex justify-between border-t pt-1">
                                         <span className="text-md font-medium text-neutral-700">Total</span>
-                                        <span className="text-md font-medium text-neutral-700">{formatCurrency(calculations.taxes / 100)}</span>
+                                        <span className="text-md font-medium text-neutral-700">USD {formatCurrency(calculations.total / 100)}</span>
                                     </div>
                                 </div>
 
